@@ -335,7 +335,7 @@
     "            'favorite_device_Computer',#f26\n",
     "            'cantidad_checkouts',#f27\n",
     "            'cantidad_conversions',#f28\n",
-    "            #'tasa_cc',\n",
+    "            'tasa_cc',\n",
     "            #'viewed product'\n",
     "            #'cantidad_lead',\n",
     "            #'searched products',\n",
@@ -978,7 +978,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 264,
+   "execution_count": 299,
    "metadata": {
     "scrolled": true
    },
@@ -987,14 +987,14 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "('Accuracy: ', 0.765902652588205)\n",
+      "('Accuracy: ', 0.6896729332989956)\n",
       "---Classification Report---\n",
       "             precision    recall  f1-score   support\n",
       "\n",
-      "          0       0.99      0.76      0.86      3714\n",
-      "          1       0.13      0.79      0.23       169\n",
+      "          0       0.99      0.68      0.81      3714\n",
+      "          1       0.11      0.86      0.20       169\n",
       "\n",
-      "avg / total       0.95      0.77      0.83      3883\n",
+      "avg / total       0.95      0.69      0.78      3883\n",
       "\n"
      ]
     }
@@ -1002,7 +1002,7 @@
    "source": [
     "xgb1 = xgb.XGBClassifier(\n",
     " learning_rate =0.0001,\n",
-    " n_estimators=1000,\n",
+    " n_estimators=2000,\n",
     " max_depth=5,\n",
     " min_child_weight=5,\n",
     " gamma=0.3,\n",
@@ -1010,14 +1010,14 @@
     " colsample_bytree=0.9,\n",
     " objective= 'binary:logistic',\n",
     " nthread=4,\n",
-    " scale_pos_weight=18,\n",
+    " scale_pos_weight=24,\n",
     " seed=27)\n",
     "modelfit(xgb1)"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 265,
+   "execution_count": 300,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -1027,15 +1027,15 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 266,
+   "execution_count": 301,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Cantidad de no conversiones: 14042\n",
-      "Cantidad de conversiones: 5373\n"
+      "Cantidad de no conversiones: 12849\n",
+      "Cantidad de conversiones: 6566\n"
      ]
     }
    ],
@@ -1053,16 +1053,16 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 267,
+   "execution_count": 302,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "0.4829578101634979"
+       "0.4749068021774292"
       ]
      },
-     "execution_count": 267,
+     "execution_count": 302,
      "metadata": {},
      "output_type": "execute_result"
     }
